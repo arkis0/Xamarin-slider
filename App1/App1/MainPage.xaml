@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.MainPage" Padding="20">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Font Size: "/>
+            <Label HorizontalOptions="Center" Text="{Binding Source={x:Reference slider}, Path=Value, StringFormat= '{0:F2}'}" x:Name="label"/>
+        </StackLayout>
+        <Slider x:Name="slider" Maximum="50" Minimum="16"/>
+        <Label Text="{Binding Quotes[CurrentQuoteIndex]}" FontSize="{Binding Source={x:Reference slider}, Path=Value, StringFormat= '{0:F1}'}" x:Name="quoteText"/>
+        <Button Text="Change Quote" Clicked="ChangeQuote"/>
+    </StackLayout>
+</ContentPage>
